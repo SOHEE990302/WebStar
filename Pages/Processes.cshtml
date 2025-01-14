@@ -1,0 +1,14 @@
+﻿@page
+@using System.Diagnostics
+@model WebStar.Pages.ProcessModel
+@{
+    var procs = ViewData["Processes"] as List<Process>;
+}
+
+<h1>Processes</h1>
+<ul>
+    @foreach (var p in procs!)
+    {
+        <li>@p.ProcessName</li>
+    }
+</ul>
