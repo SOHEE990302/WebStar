@@ -1,15 +1,14 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace RazorIntro.Pages.ProcessPages
+namespace WebStar.Pages.ProcessPage
 {
     public class ProcessDetailsModel : PageModel
     {
-        public void OnGet(int id, string name)
+        public void OnGet(int id)
         {
-            Process process = Process.GetProcessById(id);
-            ViewData["myProcess"] = process;
+            var proc = Process.GetProcessById(id);
+            ViewData["MyProcess"] = proc;
         }
     }
 }

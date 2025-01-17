@@ -1,18 +1,11 @@
 ﻿@page
+@model WebStar.Pages.ProcessPage.ProcessDetailsModel
 @using System.Diagnostics
-@model ProcessDetailsModel
 @{
-    Process? process = ViewData["myProcess"] as Process;
+    var myProc = ViewData["MyProcess"] as Process;
 }
 
-@if (process != null)
-{
-    <p><b>Name:</b> @process.ProcessName</p>
-    <p><b>Id:</b> @process.Id</p>
-    <p><b>Memory:</b> @process.WorkingSet64</p>
-}
-else
-{
-    <p>Process not found.</p>
-}
-
+<div>
+    <p>ID: @myProc!.Id</p>
+    <p>Name: @myProc!.ProcessName</p>
+</div>

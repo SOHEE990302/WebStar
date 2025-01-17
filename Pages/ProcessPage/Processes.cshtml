@@ -1,37 +1,15 @@
 ﻿@page
+@model WebStar.Pages.ProcessPage.ProcessesModel
 @using System.Diagnostics
-@model ProcessModel
 @{
-    Process[]? processes = ViewData["myProcess"] as Process[];
+    var procs = ViewData["Processes"] as Process[];
 }
 
-<div class="text-center">
-    <h1 class="display-4">Processes</h1>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Process Name</th>
-            </tr>
-        </thead>
-        <tbody>
-            @if (processes != null)
-            {
-                foreach (var process in processes)
-                {
-                    <tr>
-                        <td>
-                            @* <a class="nav-link text-dark" asp-route-id="@process.Id" asp-page="/ProcessDetails">@process.ProcessName</a>       *@
-                            <a class="nav-link text-dark" href="/ProcessPages/ProcessDetails?id=@process.Id&name=blah">@process.ProcessName</a>      
-                        </td>
-                    </tr>
-                }
-            }
-            else
-            {
-                <tr>
-                    <td colspan="3">No process found</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
+<h1>Processes</h1>
+<ul>
+    @foreach (var proc in procs!)
+    {
+        <li>@proc.ProcessName</li>
+        <li><a class="nav-link text-dark" asp-page="/ProcessPage/ProcessDetails" asp-route-id="@proc.Id">@proc.ProcessName</a></li>
+    }
+</ul>
