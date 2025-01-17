@@ -1,12 +1,11 @@
 ﻿@page
-@using System.Diagnostics
-@model ProcessModel
+@using RazorIntro.Pages.ProcessPages
+@model ProcessPropModel
 @{
-    Process[]? processes = ViewData["myProcess"] as Process[];
 }
 
 <div class="text-center">
-    <h1 class="display-4">Processes</h1>
+    <h1 class="display-4">Processes with properties</h1>
     <table class="table">
         <thead>
             <tr>
@@ -14,14 +13,13 @@
             </tr>
         </thead>
         <tbody>
-            @if (processes != null)
+            @if (Model.Processes != null)
             {
-                foreach (var process in processes)
+                foreach (var process in Model.Processes)
                 {
                     <tr>
                         <td>
-                            @* <a class="nav-link text-dark" asp-route-id="@process.Id" asp-page="/ProcessDetails">@process.ProcessName</a>       *@
-                            <a class="nav-link text-dark" href="/ProcessPages/ProcessDetails?id=@process.Id&name=blah">@process.ProcessName</a>      
+                            <a class="nav-link text-dark" asp-route-id="@process.Id" asp-page="/ProcessPages/ProcessDetailsProp">@process.ProcessName</a>      
                         </td>
                     </tr>
                 }
